@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="h-screen w-screen flex items-center justify-center bg-gray-200">
+
+    <div class="w-96"> <!-- Container GERAL que guarda todos os itens da tela incluindo o titulo TIER(1)-->
+        <h2 class="text-3xl font-bold text-center mb-4">Login</h2> <!-- Texto de login -->
+            <form action="/logar" method="post">
+         <div class="bg-white shadow-md rounded-md p-6 space-y-4"> <!-- CONTAINER QUE GUARDA TODOS OS ITENS DA TELA DE LOGIN TIER(2) -->
+            <div class=""> <!-- Box do campo do email Tier(3) -->
+                <label for="id" class="block text-sm text-gray-800 mb-1">ID:</label>
+                <input required type="text" name="id" id="id" class="w-full bg-gray-50 border border-gray-300 focus:bold focus:bg-purple-50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 px-3 py-2 text-base text-gray-800 text-sm placeholder-gray-300 focus:outline-none rounded">
+            </div>
+    
+            <div class=""> <!-- Box do campo da senha Tier(3) -->
+                <label for="password" class="block text-sm text-gray-800 mb-1">Senha:</label>
+                <input required type="password" name="password" id="password" class="w-full bg-gray-50 border border-gray-300 focus:bold focus:bg-purple-50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 px-3 py-2 text-base text-gray-800 text-sm placeholder-gray-300 focus:outline-none rounded">
+            </div>
+            
+            {% if e == True %}
+            <div class="bg-red-500 text-white font-bold py-2 px-4 rounded-md mt-5">
+                <p>Usuário ou senha incorreto.</p>
+            </div>
+            {% endif %}
+            
+            <div class=""> <!-- Box do campo do botão de login Tier(3) -->
+                <button type="submit" class="cursor-pointer py-3 px-4 block mt-6 bg-indigo-500 text-white font-bold w-full text-center rounded">Login</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

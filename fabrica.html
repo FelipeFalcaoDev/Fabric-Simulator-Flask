@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal-Armazem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-indigo-500">
+    <h1 class="text-3xl text-center mb-8 mt-3 text-white font-bold">Bem-vindo, {{ nome }}!</h1> <!-- Exibe o nome do usuário -->
+    {% if funcao == "gerente" %}
+    <div class="flex justify-center space-x-36">
+        <a href="/historico" class="bg-purple-500 text-white font-bold px-3 py-2 rounded-md">Histórico de Vendas</a>
+        <button onclick="window.location.href='/logout'" class="bg-red-500 text-white font-bold px-3 py-2 rounded-md">Sair</button>
+    </div>
+    <!-- Container das Áreas com a barra branca -->
+    <div class="bg-orange-50 p-4 shadow-lg max-w-5xl mx-auto mt-6">
+        <!-- Container Grid das Áreas -->
+        <div class="grid grid-cols-5 gap-4 mx-auto max-w-4xl bg-white-100">
+        {% for i in range(1, 6)%}
+            <a href="/area/{{i}}" class="bg-indigo-200 border p-14 text-center rounded">
+                <div id="id{{i}}">
+                    Area {{i}}
+                </div>
+            </a>
+        {% endfor %}
+        </div>
+    </div>
+    {% elif funcao == "lojista" %}
+
+    <div class="flex justify-center space-x-36">
+        <button onclick="window.location.href='/logout'" class="bg-red-500 text-white font-bold px-3 py-2 rounded-md">Sair</button>
+    </div>
+    <!-- Container das Áreas com a barra branca -->
+    <div class="bg-orange-50 p-4 shadow-lg max-w-5xl mx-auto mt-6">
+        <!-- Container Grid das Áreas -->
+        <div class="grid grid-cols-5 gap-4 mx-auto max-w-4xl bg-white-100">
+        {% for i in range(1, 6)%}
+            <a href="/area/{{i}}" class="bg-indigo-200 border p-14 text-center rounded">
+                <div id="id{{i}}">
+                    Area {{i}}
+                </div>
+            </a>
+        {% endfor %}
+        </div>
+    </div>
+
+
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Vendas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-400">
+    <h1 class="text-3xl text-center mb-8 mt-3 font-bold">Histórico de Vendas</h1>
+    <div class="items-center justify-center flex">
+        <a href="/fabrica" class="bg-orange-500 text-white font-bold px-3 py-2 rounded-md text-center mb-6">Voltar</a>
+    </div>
+    <div class="flex justify-center mt-6">
+        <h1 class="text-center text-3xl font-bold bg-purple-600 w-96 py-2 text-white">Tabela de Vendas</h1>
+    </div>
+    <!-- Estilização da tabela do histórico de vendas -->
+    <div id="historico-vendas-pai" class="justify-center items-center flex mt-6">
+        <table class="w-96 bg-white border-collapse border border-gray-300">
+            <!-- Títulos das tabelas -->
+            <thead class="bg-purple-300">
+                <tr>
+                    <th class="border border-gray-300 px-4 py-2 text-center">ID da Venda</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">Data da Venda</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">Quantidade</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">Destino</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">ID do Produto</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% if vendas|length == 0 %}
+                    <tr>
+                        <td colspan="5" class="border bg-red-100 text-center px-4 py-2">Nenhuma venda registrada.</td>
+                    </tr>
+                {% else %}
+                    {% for venda in vendas %}
+                        <tr>
+                            <td class="border bg-purple-50 px-4 py-2 whitespace-nowrap">{{ venda.idVenda }}</td>
+                            <td class="border bg-purple-50 px-4 py-2 whitespace-nowrap">{{ venda.idProduto }}</td>
+                            <td class="border bg-purple-50 px-4 py-2 whitespace-nowrap">{{ venda.quantidade }}</td>
+                            <td class="border bg-purple-50 px-4 py-2 whitespace-nowrap">{{ venda.destino }}</td>
+                            <td class="border bg-purple-50 px-4 py-2 whitespace-nowrap">{{ venda.data }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
